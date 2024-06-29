@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enerjus - Refreshing African Juices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        section {
+            min-height: 100vh;
+            padding: 5rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #home {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #home h1, #home .cta-button {
+            position: relative;
+            z-index: 2;
+        }
+        #home h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #ff0000;
+        }
+        #products {
+            background-color: #f4f4f4;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1rem;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #ff6600;
+            margin-top: 0.5rem;
+        }
+        #about {
+            background-color: white;
+        }
+        #contact {
+            background-color: #f4f4f4;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        #about p {
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem; 
+        }
+        footer {
+            background-color: #c0c0c0;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#home" class="logo">Enerjus</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Taste the refreshing and incredibly delicious juice from Africa</h1>
+        <button class="cta-button" onclick="scrollToProducts()">Show Me</button>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Citrus Burst">
+                <div class="product-info">
+                    <h3>Citrus Burst</h3>
+                    <p>A zesty blend of oranges, grapefruits, and lemons.</p>
+                    <p class="product-price">$4.99</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Green Vitality">
+                <div class="product-info">
+                    <h3>Green Vitality</h3>
+                    <p>A nutrient-packed mix of leafy greens and tropical fruits.</p>
+                    <p class="product-price">$5.49</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Berry Bliss">
+                <div class="product-info">
+                    <h3>Berry Bliss</h3>
+                    <p>A sweet and tangy fusion of various berries and pomegranate.</p>
+                    <p class="product-price">$5.29</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Mango Tango">
+                <div class="product-info">
+                    <h3>Mango Tango</h3>
+                    <p>A tropical delight featuring ripe mangoes and a hint of lime.</p>
+                    <p class="product-price">$4.79</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Pineapple Paradise">
+                <div class="product-info">
+                    <h3>Pineapple Paradise</h3>
+                    <p>A refreshing blend of pineapple, coconut, and a touch of mint.</p>
+                    <p class="product-price">$5.19</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Watermelon Splash">
+                <div class="product-info">
+                    <h3>Watermelon Splash</h3>
+                    <p>A cool and hydrating juice made from fresh watermelons.</p>
+                    <p class="product-price">$4.89</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Enerjus</h2>
+        <p>At Enerjus, we're passionate about bringing the vibrant flavors of Africa to your glass. Our commitment to quality and freshness is unmatched, as we source only the finest, sun-ripened fruits from sustainable farms across the continent.</p>
+        <p>What sets us apart is our dedication to preserving the natural goodness of our ingredients. We use innovative cold-press technology to extract maximum flavor and nutrients, ensuring that every sip of Enerjus is packed with the benefits nature intended.</p>
+        <p>From the antioxidant-rich berries to the vitamin C-packed citrus fruits, our juices not only tantalize your taste buds but also contribute to your overall well-being. Experience the power of African fruits and discover a new world of refreshment with Enerjus.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@enerjus.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>WhatsApp: +1 (555) 987-6543</p>
+        <p>Facebook: @EnerjusOfficial</p>
+    </section>
+
+    <footer>
+        <p>Enerjus © 2024 by <strong>Laure SAWADOGO</strong></p>
+    </footer>
+
+    <script>
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
