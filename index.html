@@ -94,9 +94,6 @@
         .cta-button:hover {
             background-color: #ff0000;
         }
-        #products {
-            background-color: #f4f4f4;
-        }
         .product-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -126,12 +123,15 @@
         #about {
             background-color: white;
         }
-        #contact {
+        #order {
             background-color: #f4f4f4;
         }
         h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
+        }
+        #order h3 {
+            text-decoration: underline;
         }
         #about p {
             max-width: 800px;
@@ -145,6 +145,20 @@
             text-align: center;
             padding: 1rem;
             margin-top: auto;
+        }
+        table {
+            border-collapse: collapse;
+            caption-side: bottom;
+            margin: 1rem;
+        }
+        caption {
+            margin: 1rem;
+            text-decoration: underline;
+            font-style: italic;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 1rem 3rem;
         }
         @media (max-width: 768px) {
             header {
@@ -174,84 +188,124 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#questions"/>Questions</li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
-        <h1>Taste the refreshing and incredibly delicious juice from Africa</h1>
-        <button class="cta-button" onclick="scrollToProducts()">Show Me</button>
+        <h1>Taste the refreshing and incredibly delicious juices from Africa</h1>
+        <button class="cta-button" onclick="scrollToProducts()">I want to taste</button>
     </section>
 
     <section id="products">
         <h2>Our Products</h2>
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Citrus Burst">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Ginger Juice">
                 <div class="product-info">
-                    <h3>Citrus Burst</h3>
-                    <p>A zesty blend of oranges, grapefruits, and lemons.</p>
-                    <p class="product-price">$4.99</p>
+                    <h3>Ginger Juice</h3>
+                    <p>A delicious, spicy ginger-based juice packed with health benefits.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Green Vitality">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Bissap Juice">
                 <div class="product-info">
-                    <h3>Green Vitality</h3>
-                    <p>A nutrient-packed mix of leafy greens and tropical fruits.</p>
-                    <p class="product-price">$5.49</p>
+                    <h3>Bissap Juice</h3>
+                    <p>A fragrant,refreshing juice made with hibiscus flowers.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Berry Bliss">
+                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Tuedo Juice">
                 <div class="product-info">
-                    <h3>Berry Bliss</h3>
-                    <p>A sweet and tangy fusion of various berries and pomegranate.</p>
-                    <p class="product-price">$5.29</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Mango Tango">
-                <div class="product-info">
-                    <h3>Mango Tango</h3>
-                    <p>A tropical delight featuring ripe mangoes and a hint of lime.</p>
-                    <p class="product-price">$4.79</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Pineapple Paradise">
-                <div class="product-info">
-                    <h3>Pineapple Paradise</h3>
-                    <p>A refreshing blend of pineapple, coconut, and a touch of mint.</p>
-                    <p class="product-price">$5.19</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Watermelon Splash">
-                <div class="product-info">
-                    <h3>Watermelon Splash</h3>
-                    <p>A cool and hydrating juice made from fresh watermelons.</p>
-                    <p class="product-price">$4.89</p>
+                    <h3>Tuedo Juice</h3>
+                    <p>A smooth, tasty juice made from the fruit of the iconic baobab tree.</p>
                 </div>
             </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <button class="cta-button" onclick="scrollToSection('order')">Place an Order</button>
+    </section>
+
+    <section id="order">
+        <h2>Order</h2>
+        <p>To place an order you will need to send us a message using the contact details listed below. All the juices are sold at the prices for the same quantity. Here are the infos you need for your order:<br/>
+            1 - Your selection of juices and their correponding quantities<br/>
+            2 - The date for which you want to have our order<br/>
+            3 - Your name (for order identification)<br/>
+        </p>
+        <table>
+            <caption>Table of price by quantity</caption>
+            <tr>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>250 ml</td>
+                <td class="product-price">3.00$</td>
+            </tr>
+            <tr>
+                <td>325 ml</td>
+                <td class="product-price">3.70$</td>
+            </tr>
+            <tr>
+                <td>500 ml</td>
+                <td class="product-price">5.50$</td>
+            </tr>
+            <tr>
+                <td>1 liter</td>
+                <td class="product-price">9.75$</td>
+            </tr>
+            <tr>
+                <td>2 liters</td>
+                <td class="product-price">17.50$</td>
+            </tr>
+            <tr>
+                <td>4 liters</td>
+                <td class="product-price">32.50$</td>
+            </tr>
+        </table>
+        <h3>Contact details:</h3>
+        <br/>
+        <p><strong>Email:</strong> orders@enerjus.ca <br/>
+        <strong>WhatsApp:</strong> +1 (XXX) XXX-XXXX <br/>
+        <strong>Facebook:</strong> @EnerjusCa</p>
+        <br/>
+        <button class="cta-button" onclick="scrollToSection('questions')">See frequently asked questions</button>
+    </section>
+
+    <section id="questions">
+        <h2>Questions</h2>
+        <details>
+            <summary>Where can I pickup my order?</summary>
+            <p>We are in Canada precisely at Terrebonne in Quebec province. If that works for you, place an order and you'll get the full address.</p>
+        </details>
+        <details>
+            <summary>What type of payment do you accept?</summary>
+            <p>We accept cash and interac e-transfer.</p>
+        </details>
+        <details>
+            <summary>Do you deliver?</summary>
+            <p>Yes, we do deliver. Our delivery zone is large and includes Montreal. Some additional fees could be charged for a delivery. Contact us for more information.</p>
+        </details>
+        <details>
+            <summary>Sales point</summary>
+            <p>Our juices are also sold at the following locations: <br/>
+                - ABC: XXX-XXXX <br/>
+                - CDE: XXX-XXXX <br/>
+            </p>
+        </details>
     </section>
 
     <section id="about">
         <h2>About Enerjus</h2>
-        <p>At Enerjus, we're passionate about bringing the vibrant flavors of Africa to your glass. Our commitment to quality and freshness is unmatched, as we source only the finest, sun-ripened fruits from sustainable farms across the continent.</p>
+        <p>At Enerjus, we're passionate about bringing the vibrant flavors of Africa to your glass. Our commitment to quality and freshness is unmatched, as we source only the finest, sun-ripened fruits from high quality providers.</p>
         <p>What sets us apart is our dedication to preserving the natural goodness of our ingredients. We use innovative cold-press technology to extract maximum flavor and nutrients, ensuring that every sip of Enerjus is packed with the benefits nature intended.</p>
-        <p>From the antioxidant-rich berries to the vitamin C-packed citrus fruits, our juices not only tantalize your taste buds but also contribute to your overall well-being. Experience the power of African fruits and discover a new world of refreshment with Enerjus.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: info@enerjus.com</p>
-        <p>Phone: +1 (555) 123-4567</p>
-        <p>WhatsApp: +1 (555) 987-6543</p>
-        <p>Facebook: @EnerjusOfficial</p>
+        <p>Our juices not only tantalize your taste buds but also contribute to your overall well-being. Experience the power of African fruits and discover a new world of refreshment with Enerjus.</p>
     </section>
 
     <footer>
@@ -259,6 +313,14 @@
     </footer>
 
     <script>
+        function scrollToSection(elementId) {
+            document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToOrder() {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function scrollToProducts() {
             document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         }
