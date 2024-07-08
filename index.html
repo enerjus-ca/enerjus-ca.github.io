@@ -160,6 +160,28 @@
             border: 1px solid black;
             padding: 1rem 3rem;
         }
+        details {
+            width: 70%
+        }
+        details summary {
+            background-color: #ff6600;
+            color: white;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            text-align: left;
+        }
+        details p, details div {
+            background-color: #c0c0c0;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #333;
+            text-align: left;
+        }
+        .sales_points_names {
+            margin-top: 1rem;
+            text-decoration: underline;
+        }
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -204,21 +226,21 @@
         <h2>Our Products</h2>
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Ginger Juice">
+                <img src="ginger_juice.jpg" alt="Ginger Juice">
                 <div class="product-info">
                     <h3>Ginger Juice</h3>
                     <p>A delicious, spicy ginger-based juice packed with health benefits.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Bissap Juice">
+                <img src="bissap_juice.jpg" alt="Bissap Juice">
                 <div class="product-info">
                     <h3>Bissap Juice</h3>
                     <p>A fragrant, refreshing juice made with hibiscus flowers.</p>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://www.claudeusercontent.com/api/placeholder/300/200" alt="Tuedo Juice">
+                <img src="tuedo_juice.jpg" alt="Tuedo Juice">
                 <div class="product-info">
                     <h3>Tuedo Juice</h3>
                     <p>A smooth, tasty juice made from the fruit of the iconic baobab tree.</p>
@@ -272,32 +294,65 @@
         <h3>Contact details:</h3>
         <br/>
         <p><strong>Email:</strong> orders@enerjus.ca <br/>
-        <strong>WhatsApp:</strong> +1 (XXX) XXX-XXXX <br/>
-        <strong>Facebook:</strong> @EnerjusCa</p>
+        <strong>WhatsApp:</strong> +1 (438) 405-2552 <br/>
+        <strong>Facebook:</strong> Coming soon</p>
         <br/>
         <button class="cta-button" onclick="scrollToSection('questions')">See frequently asked questions</button>
     </section>
 
     <section id="questions">
         <h2>Questions</h2>
-        <details>
+        <details open>
             <summary>Where can I pickup my order?</summary>
             <p>We are in Canada precisely at Terrebonne in Quebec province. If that works for you, place an order and you'll get the full address.</p>
         </details>
-        <details>
+        <details open>
             <summary>What type of payment do you accept?</summary>
             <p>We accept cash and interac e-transfer.</p>
         </details>
-        <details>
-            <summary>Do you deliver?</summary>
-            <p>Yes, we do deliver. Our delivery zone is large and includes Montreal. Some additional fees could be charged for a delivery. Contact us for more information.</p>
+        <details open>
+            <summary>Do you offer deliver?</summary>
+            <p>Yes, we offer delivery. Delivery costs vary according to your location and the quantity ordered.
+                For a limited time, we offer free delivery on orders of $60 or more.</p>
         </details>
-        <details>
+        <details open>
+            <summary>How long could I store your juices?</summary>
+            <p>Our juices could be kept refrigerated for up to two weeks.
+            If stored in a freezer they can be kept more tha a month.</p>
+        </details>
+        <details open>
+            <summary>Do your juices contain additives or preservatives?</summary>
+            <p>No, our juices are 100% natural and contain no additives or preservatives.</p>
+        </details>
+        <details open>
+            <summary>Can I order in bulk?</summary>
+            <p>Yes, we offer bulk ordering options for businesses, events, and individuals wishing to purchase in large quantities. Please contact us for a personalized quote.</p>
+        </details>
+        <details open>
+            <summary>Do you run promotions or special offers?</summary>
+            <div>
+                Yes, we regularly run promotions and special offers. Just drop by the store and send us a photo of your purchase. You'll get a 20% discount on your order.<br/>
+                Our promotions may vary. Visit our website regularly to be informed of our latest promotions.
+            </div>
+        </details>
+        <details open>
+            <summary>Do your juices contain no added sugar?</summary>
+            <p>No, our juices contain sugar by default.<br/>
+            However, we do accept custom orders for diet and no-sugar versions. Please contact us for your customs orders.</p>
+        </details>
+        <details open>
             <summary>Do you have sales points?</summary>
-            <p>Yes, we do. Our juices are sold at the following locations: <br/>
-                - ABC: XXX-XXXX <br/>
-                - CDE: XXX-XXXX <br/>
-            </p>
+            <div> 
+                Yes, we do. Our juices are sold at the following locations:
+                <h4 class="sales_points_names">Fruiterie Amr:</h4>
+                <Address>85 Rue Saint-Georges, Saint-Jérôme, QC J7Z 4Z4</Address>
+                <a href="tel:+14504381141">450-438-1141</a><br/>
+                <a href=https://g.co/kgs/AuNJ4ek>Google map link</a>
+                <h4 class="sales_points_names">Exo Aliments Epicerie Exotique:</h4>
+                <Address>3469 Rue Robert-Chevalier, Montreal, QC H1A 3R7</Address>
+                <a href="tel:+15146425454">514-642-5454</a><br/>
+                <a href=https://g.co/kgs/NscwQ3m>Google map link</a>
+            </div>
         </details>
     </section>
 
