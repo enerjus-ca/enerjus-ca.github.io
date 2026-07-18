@@ -184,12 +184,73 @@
             margin-top: 1rem;
             text-decoration: underline;
         }
+
+        /* Language switcher styles */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .lang-switch {
+            display: flex;
+            gap: 2px;
+            background-color: #f0f0f0;
+            padding: 2px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            color: #ff6600;
+        }
+        .lang-btn.active {
+            background-color: #ff6600;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Language display rules */
+        [lang="fr"] {
+            display: none !important;
+        }
+        body.lang-fr [lang="fr"] {
+            display: inline !important;
+        }
+        body.lang-fr blockquote[lang="fr"],
+        body.lang-fr p[lang="fr"],
+        body.lang-fr h1[lang="fr"],
+        body.lang-fr h2[lang="fr"],
+        body.lang-fr h3[lang="fr"],
+        body.lang-fr div[lang="fr"] {
+            display: block !important;
+        }
+        body.lang-fr [lang="en"] {
+            display: none !important;
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
+                gap: 0.5rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+                align-items: center;
             }
             nav ul {
-                margin-top: 1rem;
+                margin-top: 0;
             }
             #home h1 {
                 font-size: 2rem;
@@ -208,43 +269,62 @@
 <body>
     <header>
         <a href="#home" class="logo">Enerjus</a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#questions"/>Questions</li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#home"><span lang="en">Home</span><span lang="fr">Accueil</span></a></li>
+                    <li><a href="#products"><span lang="en">Products</span><span lang="fr">Produits</span></a></li>
+                    <li><a href="#questions">Questions</a></li>
+                    <li><a href="#about"><span lang="en">About</span><span lang="fr">À propos</span></a></li>
+                </ul>
+            </nav>
+            <div class="lang-switch">
+                <button onclick="setLanguage('en')" class="lang-btn active" id="btn-en">EN</button>
+                <button onclick="setLanguage('fr')" class="lang-btn" id="btn-fr">FR</button>
+            </div>
+        </div>
     </header>
 
     <section id="home">
-        <h1>Taste the refreshing and incredibly delicious juices from Africa</h1>
-        <button class="cta-button" onclick="scrollToProducts()">I want to taste</button>
+        <h1 lang="en">Taste the refreshing and incredibly delicious juices from Africa</h1>
+        <h1 lang="fr">Découvrez des jus d'Afrique rafraîchissants et incroyablement délicieux</h1>
+        <button class="cta-button" onclick="scrollToProducts()">
+            <span lang="en">I want to taste</span>
+            <span lang="fr">Je veux goûter</span>
+        </button>
     </section>
 
     <section id="products">
-        <h2>Our Products</h2>
+        <h2>
+            <span lang="en">Our Products</span>
+            <span lang="fr">Nos Produits</span>
+        </h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="ginger_juice.jpg" alt="Ginger Juice">
                 <div class="product-info">
-                    <h3>Ginger Juice</h3>
-                    <p>A delicious, spicy ginger-based juice packed with health benefits.</p>
+                    <h3 lang="en">Ginger Juice</h3>
+                    <h3 lang="fr">Jus de Gingembre</h3>
+                    <p lang="en">A delicious, spicy ginger-based juice packed with health benefits.</p>
+                    <p lang="fr">Un délicieux jus épicé à base de gingembre, plein de bienfaits pour la santé.</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="bissap_juice.jpg" alt="Bissap Juice">
                 <div class="product-info">
-                    <h3>Bissap Juice</h3>
-                    <p>A fragrant, refreshing juice made with hibiscus flowers.</p>
+                    <h3 lang="en">Bissap Juice</h3>
+                    <h3 lang="fr">Jus de Bissap</h3>
+                    <p lang="en">A fragrant, refreshing juice made with hibiscus flowers.</p>
+                    <p lang="fr">Un jus parfumé et rafraîchissant fait à base de fleurs d'hibiscus.</p>
                 </div>
             </div>
             <div class="product-card">
                 <img src="tuedo_juice.jpg" alt="Tuedo Juice">
                 <div class="product-info">
-                    <h3>Tuedo Juice</h3>
-                    <p>A smooth, tasty juice made from the fruit of the iconic baobab tree.</p>
+                    <h3 lang="en">Tuedo Juice</h3>
+                    <h3 lang="fr">Jus de Tuedo</h3>
+                    <p lang="en">A smooth, tasty juice made from the fruit of the iconic baobab tree.</p>
+                    <p lang="fr">Un jus doux et savoureux fait à partir du fruit de l'emblématique baobab.</p>
                 </div>
             </div>
         </div>
@@ -257,36 +337,63 @@
     <section id="questions">
         <h2>Questions</h2>
         <details open>
-            <summary>How long could I store your juices?</summary>
-            <p>Our juices could be kept refrigerated for up to two weeks.
+            <summary>
+                <span lang="en">How long could I store your juices?</span>
+                <span lang="fr">Combien de temps puis-je conserver vos jus ?</span>
+            </summary>
+            <p lang="en">Our juices could be kept refrigerated for up to two weeks.
             If stored in a freezer they can be kept more than a month.</p>
+            <p lang="fr">Nos jus se conservent au réfrigérateur jusqu'à deux semaines.
+            S'ils sont congelés, ils peuvent être conservés plus d'un mois.</p>
         </details>
         <details open>
-            <summary>Do your juices contain additives or preservatives?</summary>
-            <p>No, our juices are 100% natural and contain no additives or preservatives.</p>
+            <summary>
+                <span lang="en">Do your juices contain additives or preservatives?</span>
+                <span lang="fr">Vos jus contiennent-ils des additifs ou des conservateurs ?</span>
+            </summary>
+            <p lang="en">No, our juices are 100% natural and contain no additives or preservatives.</p>
+            <p lang="fr">Non, nos jus sont 100% naturels et ne contiennent aucun additif ni conservateur.</p>
         </details>
         <details open>
-            <summary>Do your juices contain no added sugar?</summary>
-            <p>No, our juices contain sugar by default.<br/>
+            <summary>
+                <span lang="en">Do your juices contain no added sugar?</span>
+                <span lang="fr">Vos jus sont-ils sans sucre ajouté ?</span>
+            </summary>
+            <p lang="en">No, our juices contain sugar by default.<br/>
             However, we do accept custom orders for diet and no-sugar versions. Please contact us for your custom orders.</p>
+            <p lang="fr">Non, nos jus contiennent du sucre par défaut.<br/>
+            Cependant, nous acceptons les commandes personnalisées pour des versions de régime et sans sucre. Veuillez nous contacter pour vos commandes personnalisées.</p>
         </details>
         <details open>
-            <summary>Do you have sales points?</summary>
-            <div> 
+            <summary>
+                <span lang="en">Do you have sales points?</span>
+                <span lang="fr">Avez-vous des points de vente ?</span>
+            </summary>
+            <div lang="en"> 
                 Not yet.
+            </div>
+            <div lang="fr"> 
+                Pas encore.
             </div>
         </details>
     </section>
 
     <section id="about">
-        <h2>About Enerjus</h2>
-        <p>At Enerjus, we're passionate about bringing the vibrant flavors of Africa to your glass. Our commitment to quality and freshness is unmatched, as we source only the finest, sun-ripened fruits from high quality providers.</p>
-        <p>What sets us apart is our dedication to preserving the natural goodness of our ingredients. We use innovative cold-press technology to extract maximum flavor and nutrients, ensuring that every sip of Enerjus is packed with the benefits nature intended.</p>
-        <p>Our juices not only tantalize your taste buds but also contribute to your overall well-being. Experience the power of African fruits and discover a new world of refreshment with Enerjus.</p>
+        <h2>
+            <span lang="en">About Enerjus</span>
+            <span lang="fr">À propos d'Enerjus</span>
+        </h2>
+        <p lang="en">At Enerjus, we're passionate about bringing the vibrant flavors of Africa to your glass. Our commitment to quality and freshness is unmatched, as we source only the finest, sun-ripened fruits from high quality providers.</p>
+        <p lang="fr">Chez Enerjus, nous sommes passionnés par l'idée d'apporter les saveurs vibrantes de l'Afrique dans votre verre. Notre engagement envers la qualité et la fraîcheur est inégalé, car nous ne sélectionnons que les meilleurs fruits mûris au soleil auprès de producteurs de haute qualité.</p>
+        <p lang="en">What sets us apart is our dedication to preserving the natural goodness of our ingredients. We use innovative cold-press technology to extract maximum flavor and nutrients, ensuring that every sip of Enerjus is packed with the benefits nature intended.</p>
+        <p lang="fr">Ce qui nous distingue, c'est notre dévouement à préserver la bonté naturelle de nos ingrédients. Nous utilisons une technologie innovante de pressage à froid pour extraire un maximum de saveur et de nutriments, garantissant que chaque gorgée d'Enerjus regorge des bienfaits que la nature a prévus.</p>
+        <p lang="en">Our juices not only tantalize your taste buds but also contribute to your overall well-being. Experience the power of African fruits and discover a new world of refreshment with Enerjus.</p>
+        <p lang="fr">Nos jus ne font pas que ravir vos papilles, ils contribuent également à votre bien-être général. Découvrez la puissance des fruits africains et découvrez un nouveau monde de rafraîchissement avec Enerjus.</p>
     </section>
 
     <footer>
-        <p>Enerjus © 2024 by <strong>Laure SAWADOGO</strong></p>
+        <p lang="en">Enerjus © 2024 by <strong>Laure SAWADOGO</strong></p>
+        <p lang="fr">Enerjus © 2024 par <strong>Laure SAWADOGO</strong></p>
     </footer>
 
     <script>
@@ -294,6 +401,7 @@
             document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Keep this if needed or keep scroll to section
         function scrollToOrder() {
             document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
         }
@@ -310,6 +418,26 @@
                 });
             });
         });
+
+        function setLanguage(lang) {
+            if (lang === 'fr') {
+                document.body.classList.add('lang-fr');
+                document.getElementById('btn-fr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+                document.title = "Enerjus - Jus d'Afrique Rafraîchissants";
+                localStorage.setItem('lang', 'fr');
+            } else {
+                document.body.classList.remove('lang-fr');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-fr').classList.remove('active');
+                document.title = "Enerjus - Refreshing African Juices";
+                localStorage.setItem('lang', 'en');
+            }
+        }
+
+        // Initialize language
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
     </script>
 </body>
 </html>
