@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enerjus - Refreshing African Juices</title>
     <link rel="icon" type="image/png" href="Logo.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" id="meta-description" content="Discover Enerjus: 100% natural, refreshing and delicious African juices (Bissap, Ginger, Baobab). Traditional recipes without preservatives.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://enerjus-ca.github.io/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enerjus-ca.github.io/">
+    <meta property="og:title" id="og-title" content="Enerjus - Refreshing African Juices">
+    <meta property="og:description" id="og-description" content="100% natural, refreshing and delicious African juices (Bissap, Ginger, Baobab). Traditional recipes without preservatives.">
+    <meta property="og:image" content="https://enerjus-ca.github.io/Logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://enerjus-ca.github.io/">
+    <meta name="twitter:title" id="twitter-title" content="Enerjus - Refreshing African Juices">
+    <meta name="twitter:description" id="twitter-description" content="100% natural, refreshing and delicious African juices.">
+    <meta name="twitter:image" content="https://enerjus-ca.github.io/Logo.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Brand",
+      "name": "Enerjus",
+      "logo": "https://enerjus-ca.github.io/Logo.png",
+      "url": "https://enerjus-ca.github.io/",
+      "description": "Natural and refreshing juices from Africa, made with high-quality ingredients like hibiscus (bissap), ginger, and baobab.",
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ginger Juice / Jus de Gingembre",
+          "description": "A delicious, spicy ginger-based juice packed with health benefits.",
+          "image": "https://enerjus-ca.github.io/ginger_juice_glass.png"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bissap Juice / Jus de Bissap",
+          "description": "A fragrant, refreshing juice made with hibiscus flowers.",
+          "image": "https://enerjus-ca.github.io/bissap_juice_glass.png"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Baobab Juice / Jus de Baobab",
+          "description": "A smooth, tasty juice made from the fruit of the iconic baobab tree.",
+          "image": "https://enerjus-ca.github.io/baobab_juice_glass.png"
+        }
+      ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -220,10 +281,10 @@
         }
 
         /* Language display rules */
-        [lang="fr"] {
+        :not(html)[lang="fr"] {
             display: none !important;
         }
-        body.lang-fr [lang="fr"] {
+        body.lang-fr :not(html)[lang="fr"] {
             display: inline !important;
         }
         body.lang-fr blockquote[lang="fr"],
@@ -234,7 +295,7 @@
         body.lang-fr div[lang="fr"] {
             display: block !important;
         }
-        body.lang-fr [lang="en"] {
+        body.lang-fr :not(html)[lang="en"] {
             display: none !important;
         }
 
@@ -293,8 +354,8 @@
         <h1 lang="en">Taste the refreshing and incredibly delicious juices from Africa</h1>
         <h1 lang="fr">Découvrez des jus d'Afrique rafraîchissants et incroyablement délicieux</h1>
         <button class="cta-button" onclick="scrollToProducts()">
-            <span lang="en">I want to taste</span>
-            <span lang="fr">Je veux goûter</span>
+            <span lang="en">Discover</span>
+            <span lang="fr">Découvrir</span>
         </button>
     </section>
 
@@ -323,10 +384,10 @@
                 </div>
             </div>
             <div class="product-card">
-                <img src="baobab_juice_glass.png" alt="Tuedo Juice">
+                <img src="baobab_juice_glass.png" alt="Baobab Juice">
                 <div class="product-info">
-                    <h3 lang="en">Tuedo Juice</h3>
-                    <h3 lang="fr">Jus de Tuedo</h3>
+                    <h3 lang="en">Baobab Juice</h3>
+                    <h3 lang="fr">Jus de Baobab</h3>
                     <p lang="en">A smooth, tasty juice made from the fruit of the iconic baobab tree.</p>
                     <p lang="fr">Un jus doux et savoureux fait à partir du fruit de l'emblématique baobab.</p>
                 </div>
@@ -335,7 +396,10 @@
         <br/>
         <br/>
         <br/>
-        <button class="cta-button" onclick="scrollToSection('questions')">Questions</button>
+        <a href="mailto:taste@enerjus.ca" class="cta-button" style="text-decoration: none; display: inline-block;">
+            <span lang="en">I want to taste</span>
+            <span lang="fr">Je veux goûter</span>
+        </a>
     </section>
 
     <section id="questions">
@@ -424,23 +488,59 @@
         });
 
         function setLanguage(lang) {
-            if (lang === 'fr') {
-                document.body.classList.add('lang-fr');
-                document.getElementById('btn-fr').classList.add('active');
-                document.getElementById('btn-en').classList.remove('active');
-                document.title = "Enerjus - Jus d'Afrique Rafraîchissants";
-                localStorage.setItem('lang', 'fr');
-            } else {
-                document.body.classList.remove('lang-fr');
-                document.getElementById('btn-en').classList.add('active');
-                document.getElementById('btn-fr').classList.remove('active');
-                document.title = "Enerjus - Refreshing African Juices";
-                localStorage.setItem('lang', 'en');
+            try {
+                const metaDesc = document.getElementById('meta-description');
+                const ogTitle = document.getElementById('og-title');
+                const ogDesc = document.getElementById('og-description');
+                const twitterTitle = document.getElementById('twitter-title');
+                const twitterDesc = document.getElementById('twitter-description');
+
+                document.documentElement.lang = lang;
+
+                const btnFr = document.getElementById('btn-fr');
+                const btnEn = document.getElementById('btn-en');
+
+                if (lang === 'fr') {
+                    document.body.classList.add('lang-fr');
+                    if (btnFr) btnFr.classList.add('active');
+                    if (btnEn) btnEn.classList.remove('active');
+                    document.title = "Enerjus - Jus d'Afrique Rafraîchissants";
+                    try { localStorage.setItem('lang', 'fr'); } catch(e) {}
+
+                    if (metaDesc) metaDesc.setAttribute('content', "Découvrez Enerjus : des jus d'Afrique 100% naturels, rafraîchissants et délicieux (Bissap, Gingembre, Baobab). Recettes traditionnelles sans conservateurs.");
+                    if (ogTitle) ogTitle.setAttribute('content', "Enerjus - Jus d'Afrique Rafraîchissants");
+                    if (ogDesc) ogDesc.setAttribute('content', "Des jus d'Afrique 100% naturels, rafraîchissants et délicieux. Recettes traditionnelles.");
+                    if (twitterTitle) twitterTitle.setAttribute('content', "Enerjus - Jus d'Afrique Rafraîchissants");
+                    if (twitterDesc) twitterDesc.setAttribute('content', "Des jus d'Afrique 100% naturels, rafraîchissants et délicieux.");
+                } else {
+                    document.body.classList.remove('lang-fr');
+                    if (btnEn) btnEn.classList.add('active');
+                    if (btnFr) btnFr.classList.remove('active');
+                    document.title = "Enerjus - Refreshing African Juices";
+                    try { localStorage.setItem('lang', 'en'); } catch(e) {}
+
+                    if (metaDesc) metaDesc.setAttribute('content', "Discover Enerjus: 100% natural, refreshing and delicious African juices (Bissap, Ginger, Baobab). Traditional recipes without preservatives.");
+                    if (ogTitle) ogTitle.setAttribute('content', "Enerjus - Refreshing African Juices");
+                    if (ogDesc) ogDesc.setAttribute('content', "100% natural, refreshing and delicious African juices (Bissap, Ginger, Baobab).");
+                    if (twitterTitle) twitterTitle.setAttribute('content', "Enerjus - Refreshing African Juices");
+                    if (twitterDesc) twitterDesc.setAttribute('content', "100% natural, refreshing and delicious African juices.");
+                }
+            } catch (err) {
+                console.error("Error setting language:", err);
             }
         }
 
-        // Initialize language
-        const savedLang = localStorage.getItem('lang') || 'en';
+        // Initialize language (detect browser language on first visit with safety catch)
+        let savedLang = 'en';
+        try {
+            const browserLang = (navigator.language || navigator.userLanguage || 'en').startsWith('fr') ? 'fr' : 'en';
+            savedLang = localStorage.getItem('lang') || browserLang;
+        } catch (e) {
+            console.warn("Storage access not available, using default language logic:", e);
+            try {
+                savedLang = (navigator.language || navigator.userLanguage || 'en').startsWith('fr') ? 'fr' : 'en';
+            } catch(err) {}
+        }
         setLanguage(savedLang);
     </script>
 </body>
